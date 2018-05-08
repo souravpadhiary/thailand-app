@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>atozthailand</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+  	<link rel="stylesheet" href="css/head-style.css">
+  	<link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+	
+	<style>
+			input.ng-touched{
+				border:2px solid red;
+			}
+			input.ng-valid{
+				border:2px solid green;
+			}
+			select.ng-touched{
+				border:2px solid red;
+			}
+			select.ng-valid{
+				border:2px solid green;
+			}
+			textarea.ng-touched{
+				border:2px solid red;
+			}
+			textarea.ng-valid{
+				border:2px solid green;
+			}
+			form.ng-pristine{
+			background-color:skyblue;
+			padding:20px;
+			}
+			form.ng-dirty{
+			background-color:lightgreen;
+			padding:20px;
+			}
+			
+	</style>
+	
+	<script src="assets/js/angular.js"></script>
+	<script>
+			var app=angular.module("Myapp",[]);
+			app.controller("myctrl",function($scope){
+			
+			});
+		</script>
+
+</head>
+<body ng-app="Myapp">
+<nav class="navbar navbar-default navbar-static-top fluid_header">
+	<div class="container">
+		<div class="navbar-header">
+			<a class="navbar-brand" href="index.html"><img width="130" src="images/logo.png" alt=""></a>
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main_navigation" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+		</div>
+		<div class="collapse navbar-collapse" id="main_navigation">
+			<ul class="nav navbar-nav navbar-right">
+				<li><a class="text-red bold" href="#"><i class="fa fa-phone"></i> +123 - 456 - 789</a></li>
+				<li><a href="#"><i class="fa fa-sign-in"></i> Signin</a></li>
+				<li><a href="#"><i class="fa fa-user"></i> Signup</a></li>
+			</ul>
+		</div>
+	</div>
+</nav>
+
+<section class="inner-banner-section">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<h2 class="text-u-c">SIGN IN</h2>
+			</div>
+		</div>
+	</div>
+</section>
+<section class="page-section p-v-60">
+	<div class="container" ng-controller="myctrl">
+		<div class="row">
+			<div class="col-sm-8">
+				<div class="login-cardbox">
+					 <form name="myform" method="Post" action="#" novalidate>
+					<div class="row">
+						<div class="col-sm-6">
+						 
+							<div class="form-group">
+								<label>First Name</label>
+								<input type="text" class="form-control" placeholder="First Name" name="fname" ng-model="fname" required>
+								<span ng-show="myform.fname.$touched && myform.fname.$invalid">
+									please Enter the Name.
+								</span>
+								
+
+							</div>
+						</div>
+						<div class="col-sm-6">
+							<div class="form-group">
+								<label>Last Name</label>
+								<input type="text" class="form-control" placeholder="Last Name" name="lname" ng-model="lname" required>
+								<span ng-show="myform.lname.$touched && myform.lname.$invalid">
+								please Enter the Name.
+								</span>
+							</div>
+						</div>
+					</div>
+					
+					<div class="form-group">
+						<label>Email id</label>
+						<input type="email" class="form-control" placeholder="E-mail" name="email" ng-model="email" required>
+								<span ng-show="myform.email.$touched && myform.email.$invalid">
+									<span ng-show="myform.email.$error.required">
+										Please Enter Email
+									</span>
+									<span ng-show="myform.email.$error.email">
+										Invalid email:"Enter valid email id"
+									
+									</span>
+								</span>
+					</div>
+					
+					<div class="form-group">
+						<label>Mobile No</label>
+						<input type="text" class="form-control" placeholder="Mobile No" ng-pattern="/[0-9]{10}/" name="mobile" 
+								ng-model="mobile" maxlength="10" required>
+								<span ng-show="myform.mobile.$touched && myform.mobile.$invalid">
+									<span ng-show="myform.mobile.$error.required">
+										Please Enter Mobile no
+									</span>
+									<span ng-show="myform.mobile.$error.pattern">
+										Invalid Mobileno:"Please enter 10 digit mobile no."
+									
+									</span>
+								</span>
+					</div>
+					
+					<div class="row">
+						<div class="col-sm-6">
+							<div class="form-group">
+								<label>Password</label>
+								<input type="text" class="form-control" placeholder="Password" name="password" ng-model="password" required>
+								<span ng-show="myform.password.$touched && myform.password.$invalid">
+								please Enter the Password.
+								</span>
+								
+							</div>
+						</div>
+						
+						<div class="col-sm-6">
+							<div class="form-group">
+								<label>Confirm Password</label>
+								<input type="text" class="form-control" placeholder="Confirm Password" name="cpassword" ng-model="cpassword" required>
+								<span ng-show="myform.cpassword.$touched && myform.cpassword.$invalid">
+								please Confirm the Password.
+								</span>
+								
+							</div>
+						</div>
+					</div><br>
+					
+					<div class="form-group text-right">
+						<button class="btn btn-blue btn-md text-u-c m-r-5" ng-disabled="myform.$pristine" ng-disabled="enablechk">Sign up</button>
+					</div>
+					<div class="gray-line-sm"></div>
+					<div class="clearfix">
+						Already have an account?  <a class="text-u-l" href="">Login</a>
+					</div>
+					</form>
+					
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="extend-service">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<h2 class="text-u-c">Extended Services</h2>
+				<div class="h2-line"></div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-4">
+				<a href="" class="extended-service-box">
+					<img src="images/extended-service/shop-online-icon.png" />
+					Shop Online
+				</a>
+			</div>
+			<div class="col-sm-4">
+				<a href="" class="extended-service-box">
+					<img src="images/extended-service/third-party.png" />
+					Third Party Service Integration
+				</a>
+			</div>
+			<div class="col-sm-4">
+				<a href="" class="extended-service-box">
+					<img src="images/extended-service/booknow.png" />
+					Book Now
+				</a>
+			</div>
+		</div>
+	</div>
+</section>
+
+<footer class="footer-section padd-t-60">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-3">
+				<div class="ftr-block-list">
+					<h4>QUICK LINKS</h4>
+					<ul>
+						<li><a href="">FAQ's </a></li>
+						<li><a href="">Terms & Conditions</a></li>
+						<li><a href="">Feedback</a></li>			
+					</ul>
+				</div>
+			</div>
+			<div class="col-md-3">
+				<div class="ftr-block-list">
+					<h4>GET TO KNOW US</h4>
+					<ul>
+						<li><a href="">About Us </a></li>
+						<li><a href="">Our Team</a></li>
+						<li><a href="">Contact Us</a></li>
+						<li><a href="">Method of Payments</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="col-md-3">
+				<div class="ftr-block-list">
+					<h4>EARN WITH US</h4>
+					<ul>
+						<li><a href="">Advertise </a></li>
+						<li><a href="">Free Listing</a></li>
+						<li><a href="">Paid Listing</a></li>
+						<li><a href="">Sell Online</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="col-md-3">
+				<div class="ftr-block-list">
+					<h4>GET FROM US</h4>
+					<ul>
+						<li><a href="">Internship </a></li>
+						<li><a href="">Careers</a></li>
+						<li><a href="">Webmail Login</a></li>
+					</ul>
+				</div>
+			</div>
+
+		</div>
+	</div>
+	<div class="ftr-copyright">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6">
+					Powered by Sevensys I.T. © 2017 atozthailand.com All rights reserved.
+				</div>
+				<div class="col-md-6">
+					<ul class="ftr-social pull-right">
+						<li><a target="_blank" class="fb" href="#"><i class="fa fa-facebook"></i></a></li>
+						<li><a target="_blank" class="tw" href="#"><i class="fa fa-twitter"></i></a></li>
+						<li><a target="_blank" class="gp" href="#"><i class="fa fa-google-plus"></i></a></li>
+						<li><a target="_blank" class="li" href="#"><i class="fa fa-linkedin"></i></a></li>
+					  </ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</footer>
+
+
+
+
+
+
+
+
+
+<!--jQuery-->
+<script src="js/jquery-1.11.2.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/theme.js"></script>
+
+
+</body>
+</html>
